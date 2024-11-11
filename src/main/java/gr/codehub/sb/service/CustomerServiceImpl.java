@@ -17,6 +17,7 @@ public class CustomerServiceImpl implements CustomerService{
 
     public Customer findCustomerById(long id){
         Customer customer = customerRepository.findCustomerById(id);
+        if (customer == null) return null;
         if (customer.isHidden()){
             return null;
         }
@@ -48,6 +49,21 @@ public class CustomerServiceImpl implements CustomerService{
             }
         }
         return customersToShow;
+    }
+
+    @Override
+    public Customer saveCustomer(Customer customer) {
+        return customerRepository.saveCustomer(customer);
+    }
+
+    @Override
+    public boolean deleteCustomerById(long id) {
+        return customerRepository.deleteCustomerById(id);
+    }
+
+    @Override
+    public boolean updateCustomerById(long id, Customer customer) {
+        return customerRepository.updateCustomerById(id, customer);
     }
 
 }

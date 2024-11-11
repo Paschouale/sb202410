@@ -31,4 +31,19 @@ public class CustomerController {
         List<Customer> customers = customerService.findCustomerRange(from, to);
         return customers;
     }
+
+    @PostMapping
+    public Customer createCustomer(@RequestBody Customer customer){
+        return customerService.saveCustomer(customer);
+    }
+
+    @DeleteMapping("{customerid}")
+    public boolean deleteCustomer(@PathVariable long customerid){
+        return customerService.deleteCustomerById(customerid);
+    }
+
+    @PutMapping("{customerid}")
+    public boolean updateCustomer(@PathVariable long customerid, @RequestBody Customer customer){
+        return customerService.updateCustomerById(customerid, customer);
+    }
 }

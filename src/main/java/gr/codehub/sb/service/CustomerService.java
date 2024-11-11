@@ -9,4 +9,7 @@ public interface CustomerService {
     Customer findCustomerById(long id);
     List<Customer> findAllCustomers();
     List<Customer> findCustomerRange(Long from, Long to);
+    Customer saveCustomer(Customer customer);
+    boolean deleteCustomerById(long id);
+    boolean updateCustomerById(long id, Customer customer);
 }
