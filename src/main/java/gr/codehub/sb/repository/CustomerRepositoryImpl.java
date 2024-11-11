@@ -29,4 +29,10 @@ public class CustomerRepositoryImpl implements CustomerRepository{
         }
         return  null;
     }
+
+    @Override
+    public List<Customer> findAllCustomer() {
+        List<Customer> copyCustomerList = new ArrayList<>(customers);
+        return copyCustomerList;
+    }
 }
